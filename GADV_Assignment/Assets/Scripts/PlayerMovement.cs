@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 8f;
-    public float jumpSpeed = 8f;
-    public Vector2 boxSize;
-    public float castDistance;
-    public LayerMask groundLayer;
+    public float moveSpeed = 8.0f;
+    public float jumpSpeed = 7.0f;
+    public float fallSpeed = 3.5f;
+    [SerializeField] private Vector2 boxSize;
+    [SerializeField] private float castDistance;
+    [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D rb;
     private float direction = 0f;
 
@@ -27,6 +28,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //Make player fall faster
+    private void FixedUpdate()
+    {
+        if (rb.linearVelocity.y < 0)
+        {
+            rb.linearVelocity += Vector2.up * Physics.gravity.y * fallSpeed * Time.deltaTime;
+        }
+    }
     //Detect if player is on the ground
     public bool isGrounded()
     {
