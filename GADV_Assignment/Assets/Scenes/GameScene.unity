@@ -736,6 +736,7 @@ GameObject:
   - component: {fileID: 1686820965}
   - component: {fileID: 1686820964}
   - component: {fileID: 1686820963}
+  - component: {fileID: 1686820969}
   - component: {fileID: 1686820968}
   m_Layer: 0
   m_Name: Player
@@ -759,8 +760,8 @@ MonoBehaviour:
   moveSpeed: 9
   jumpSpeed: 7
   fallSpeed: 3.5
-  boxSize: {x: 0.9, y: 0.2}
-  castDistance: 1.15
+  boxSize: {x: 0, y: 0}
+  castDistance: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -836,7 +837,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.25, y: 1.75}
+  m_Size: {x: 1, y: 1.75}
   m_EdgeRadius: 0
 --- !u!212 &1686820966
 SpriteRenderer:
@@ -902,7 +903,7 @@ Transform:
   m_GameObject: {fileID: 1686820962}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0.01, y: -2.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -930,6 +931,52 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &1686820969
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686820962}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.05, y: -1.15}
+  m_SpriteTilingProperty:
+    border: {x: 1.15, y: 0.29999998, z: 1.05, w: 0.9}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.6, y: 3}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 0.1}
+  m_EdgeRadius: 0
 --- !u!1001 &1723503814
 PrefabInstance:
   m_ObjectHideFlags: 0
