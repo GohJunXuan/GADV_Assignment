@@ -12,9 +12,14 @@ GameObject:
   - component: {fileID: 7048423527002457549}
   - component: {fileID: 855243580816375125}
   - component: {fileID: 1150680183989462808}
-  - component: {fileID: 1774205938171690037}
   - component: {fileID: 4676751131095198275}
   - component: {fileID: 7952386423289248187}
+  - component: {fileID: 2389035707653891971}
+  - component: {fileID: 4005394407585769083}
+  - component: {fileID: 5717893978510219002}
+  - component: {fileID: 8706202341746820752}
+  - component: {fileID: 4124351266572588359}
+  - component: {fileID: 8627025475105431012}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -166,28 +171,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1774205938171690037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119405302875732902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48689e5f55dd32e448b76622ba5e0afe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 9
-  jumpSpeed: 7
-  fallSpeed: 3.5
-  bounceSpeed: 6
-  swordHitBox: {fileID: 9049672748396289897}
-  hitBoxRadius: 1.1
-  spikes:
-    serializedVersion: 2
-    m_Bits: 128
-  animator: {fileID: 7952386423289248187}
 --- !u!61 &4676751131095198275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -256,6 +239,89 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2389035707653891971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119405302875732902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a17444fbe19a7e47bc45ee4f7072ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4005394407585769083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119405302875732902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726d6e980cc1e5b469fca01b6ee3bfdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 9
+  jumpSpeed: 7
+  fallSpeed: 3.5
+  isGrounded: 1
+--- !u!114 &5717893978510219002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119405302875732902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b180da936fc6147b12d64306c7c125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordHitBox: {fileID: 9049672748396289897}
+  hitBoxRadius: 1.1
+  spikes:
+    serializedVersion: 2
+    m_Bits: 128
+  bounceSpeed: 6
+--- !u!114 &8706202341746820752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119405302875732902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9101edc99c6426c4a9f313f261e53f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4124351266572588359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119405302875732902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac63a3b6336bf004395df56d10b45e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationController: {fileID: 7952386423289248187}
+--- !u!114 &8627025475105431012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119405302875732902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84191b01db02434482f72be8e6374ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9049672748396289897
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +347,7 @@ Transform:
   m_GameObject: {fileID: 9049672748396289897}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.65, z: 0}
+  m_LocalPosition: {x: -0.05, y: -0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
