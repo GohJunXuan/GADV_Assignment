@@ -3,24 +3,16 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerDeath : MonoBehaviour
 {
-    private Vector2 startPosition;
-    private PlayerAnimator Animation;
+    private PlayerAnimator animationController;
 
     void Start()
     {
-        startPosition = transform.position;
-        Animation = GetComponent<PlayerAnimator>();
+        animationController = GetComponent<PlayerAnimator>();
     }
 
     public void Die()
     {
-        Animation.SetDead(true);
-        Animation.SetAttacking(false);
-    }
-
-    public void Respawn()
-    {
-        transform.position = startPosition;
-        Animation.SetDead(false);
+        animationController.SetDead(true);
+        animationController.SetAttacking(false);
     }
 }
