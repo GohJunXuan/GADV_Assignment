@@ -2,39 +2,44 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private PlayerMovement movement;
-    private PlayerAttack attack;
-    private PlayerAnimator animationController;
-    private SpriteFlipper flipper;
+    private PlayerMovement playerMovement;
+    private PlayerAttack playerAttack;
+    private PlayerAnimator playerAnimator;
+    private SpriteFlipper spriteFlipper;    
+    private GameAudioManager audioManager;
 
     void Start()
     {
-        movement = GetComponent<PlayerMovement>();
-        attack = GetComponent<PlayerAttack>();
-        animationController = GetComponent<PlayerAnimator>();
-        flipper = GetComponent<SpriteFlipper>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerAttack = GetComponent<PlayerAttack>();
+        playerAnimator = GetComponent<PlayerAnimator>();
+        spriteFlipper = GetComponent<SpriteFlipper>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<GameAudioManager>();
     }
 
     void Update()
     {
-        animationController.SetJumping(!movement.isGrounded());
+        playerAnimator.SetJumping(!playerMovement.isGrounded());
         float direction = Input.GetAxisRaw("Horizontal");
-        flipper.UpdateDirection(direction);
+        spriteFlipper.UpdateDirection(direction);
 
         if (Input.GetButtonDown("Jump"))
         {
-            movement.Jump();
+            playerMovement.Jump();
+            playerAnimator.SetJumping(true);
+            audioManager.PlaySFX(audioManager.JumpSFX);
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            attack.Attack();
-            animationController.SetAttacking(true);
+            playerAttack.Attack();
+            playerAnimator.SetAttacking(true);
+            audioManager.PlaySFX(audioManager.SwordSwingSFX);
         }
     }
 
     public void EndAttack()
     {
-        animationController.SetAttacking(false);
+        playerAnimator.SetAttacking(false);
     }
 }

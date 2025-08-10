@@ -3,16 +3,19 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerDeath : MonoBehaviour
 {
-    private PlayerAnimator animationController;
+    private PlayerAnimator playerAnimator;
+    private GameAudioManager audioManager;
 
     void Start()
     {
-        animationController = GetComponent<PlayerAnimator>();
+        playerAnimator = GetComponent<PlayerAnimator>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<GameAudioManager>();
     }
 
     public void Die()
     {
-        animationController.SetDead(true);
-        animationController.SetAttacking(false);
+        playerAnimator.SetDead(true);
+        playerAnimator.SetAttacking(false);
+        audioManager.PlaySFX(audioManager.DeathSFX);
     }
 }

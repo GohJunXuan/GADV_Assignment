@@ -6,12 +6,13 @@ public class PlayerAttack : MonoBehaviour
     public float hitBoxRadius;
     public LayerMask spikes;
     public float bounceSpeed = 6.0f;
-
     private Rigidbody2D rb;
+    private GameAudioManager audioManager;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<GameAudioManager>();
     }
 
     public void Attack()
@@ -20,6 +21,7 @@ public class PlayerAttack : MonoBehaviour
         foreach (Collider2D spikes in hit)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceSpeed);
+            audioManager.PlaySFX(audioManager.BounceSFX);
         }
     }
 
