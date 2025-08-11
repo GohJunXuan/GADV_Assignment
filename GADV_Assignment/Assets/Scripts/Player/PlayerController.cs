@@ -23,18 +23,18 @@ public class PlayerController : MonoBehaviour
         float direction = Input.GetAxisRaw("Horizontal");
         spriteFlipper.UpdateDirection(direction);
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && playerMovement.isGrounded())
         {
             playerMovement.Jump();
             playerAnimator.SetJumping(true);
-            audioManager.PlaySFX(audioManager.JumpSFX);
+            audioManager.PlaySFX("Jump");
         }
 
         if (Input.GetMouseButtonDown(0))
         {
             playerAttack.Attack();
             playerAnimator.SetAttacking(true);
-            audioManager.PlaySFX(audioManager.SwordSwingSFX);
+            audioManager.PlaySFX("Sword Swing");
         }
     }
 

@@ -16,6 +16,6 @@ public class PlayerDeath : MonoBehaviour
     {
         playerAnimator.SetDead(true);
         playerAnimator.SetAttacking(false);
-        audioManager.PlaySFX(audioManager.DeathSFX);
+        audioManager.PlaySFX("Death");
     }
 }

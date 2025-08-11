@@ -1,24 +1,47 @@
+using System;
 using UnityEngine;
 
 public class GameAudioManager : MonoBehaviour
 {
-    [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource sfxSource;
+    public Sound[] music, sfx;
+    public AudioSource musicSource, sfxSource;
+    public static GameAudioManager Instance;
 
-    public AudioClip GameMusic;
-    public AudioClip JumpSFX;
-    public AudioClip SwordSwingSFX;
-    public AudioClip BounceSFX;
-    public AudioClip DeathSFX;
-
-    void Start()
+    private void Awake()
     {
-        musicSource.clip = GameMusic;
-        musicSource.Play();
+        if (Instance == null)
+        {
+            Instance = this;
+        }  
     }
 
-    public void PlaySFX(AudioClip SFXclip)
+    private void Start()
     {
-        sfxSource.PlayOneShot(SFXclip);
+        PlayMusic("GameMusic");
+    }
+
+    public void PlayMusic(string name)
+    {
+        Sound s = Array.Find(music, x => x.name == name);
+        if (s != null) 
+        {
+            musicSource.clip = s.audioClip;
+            musicSource.Play();
+        }
+    }
+
+    public void PlaySFX(string name)
+    {
+        Sound s = Array.Find(sfx, x => x.name == name);
+        if (s != null)
+        {
+            if (sfxSource.isPlaying && sfxSource.clip == s.audioClip)
+            {
+                return;
+            }
+
+            sfxSource.clip = s.audioClip;
+            sfxSource.Play();
+        }
     }
 }

@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
         foreach (Collider2D spikes in hit)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceSpeed);
-            audioManager.PlaySFX(audioManager.BounceSFX);
+            audioManager.PlaySFX("Spike Bounce");
         }
     }
 
