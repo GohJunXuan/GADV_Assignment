@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        //Get components from other classes
         playerMovement = GetComponent<PlayerMovement>();
         playerAttack = GetComponent<PlayerAttack>();
         playerAnimator = GetComponent<PlayerAnimator>();

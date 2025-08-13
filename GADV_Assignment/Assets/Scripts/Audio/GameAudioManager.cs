@@ -29,7 +29,6 @@ public class GameAudioManager : MonoBehaviour
             musicSource.Play();
         }
     }
-
     public void PlaySFX(string name)
     {
         Sound s = Array.Find(sfx, x => x.name == name);

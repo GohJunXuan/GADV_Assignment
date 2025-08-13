@@ -42,7 +42,7 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("StartMenuScene");
+        SceneManager.LoadScene("MainMenu");
     }
     public void ExitGame()
     {
